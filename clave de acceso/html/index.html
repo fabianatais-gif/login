@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autenticación - Bolivia</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/script.js" defer></script>
+</head>
+<body>
+
+<main class="container">
+  <h1> Autenticación Web </h1>
+
+  <div id="tabs">
+    <button onclick="showTab('register')" id="tR" class="tab active">Registro</button>
+    <button onclick="showTab('login')" id="tL" class="tab">Inicio de sesion</button>
+    <button onclick="showTab('recover')" id="tC" class="tab">Recuperar contraseña</button>
+  </div>
+
+  <!-- registro-->
+  <section id="register" class="card">
+    <h2>Crear cuenta</h2>
+    <form onsubmit="return register()">
+
+      <label>Nombre completo:</label>
+      <input type="text" id="name" placeholder="Ej: Fabiana Quispe" required><br><br>
+
+      <label>Correo (usuario):</label>
+      <input type="email" id="email" placeholder="Ej: ejemplo@gmail.com" required><br><br>
+
+      <label>Celular (+591):</label>
+      <div style="font-size:14px;margin-bottom:5px;">+591</div>
+      <input type="text" id="phone" placeholder="71234567" required><br><br>
+
+      <label>Contraseña:</label>
+      <div class="pass-box">
+        <input type="password" id="pass" placeholder="Contraseña segura" required>
+        <span class="eye" id="eyeReg" onclick="toggle('pass','eyeReg')">👁</span>
+      </div><br>
+
+      <button type="submit">Registrar</button>
+      <div id="msg"></div>
+    </form>
+  </section>
+
+  <!-- contraseña-->
+  <section id="login" class="card hidden">
+    <h2>Iniciar sesión</h2>
+    <form onsubmit="return login()">
+
+      <label>Correo:</label>
+      <input type="email" id="loginEmail" placeholder="Ej: ejemplo@gmail.com" required><br><br>
+
+      <label>Contraseña:</label>
+      <div class="pass-box">
+        <input type="password" id="loginPass" placeholder="Ingresa tu contraseña" required>
+        <span class="eye" id="eyeLogin" onclick="toggle('loginPass','eyeLogin')">👁</span>
+      </div><br>
+
+      <button type="submit">Entrar</button>
+      <div id="loginMsg"></div>
+    </form>
+  </section>
+
+  <!-- recuperar-->
+  <section id="recover" class="card hidden">
+    <h2>Recuperar contraseña</h2>
+    <form onsubmit="return recover()">
+
+      <label>Correo registrado:</label>
+      <input type="email" id="recoverEmail" placeholder="Ej: ejemplo@gmail.com" required><br><br>
+
+      <label>Nueva contraseña:</label>
+      <div class="pass-box">
+        <input type="password" id="newPass" placeholder="Nueva contraseña segura" required>
+        <span class="eye" id="eyeRec" onclick="toggle('newPass','eyeRec')">👁</span>
+      </div><br>
+
+      <button type="submit">Actualizar</button>
+      <div id="recoverMsg"></div>
+    </form>
+  </section>
+
+  <footer style="font-size:12px;text-align:center;margin-top:15px;color:#555;">
+    ⚠️ No seguro para producción.
+  </footer>
+</main>
+
+</body>
+</html>
